@@ -1,3 +1,2 @@
-requests==2.0.1
 stripe==1.9.8
 texttable==0.8.1
