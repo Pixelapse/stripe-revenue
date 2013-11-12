@@ -16,7 +16,7 @@ stripe.api_key = STRIPE_LIVE_KEY
 
 while True:
     stripe_customers = stripe.Customer.all(count=per_page, offset=offset)
-
+    print "Fetching users %d to %d" % (offset, offset + per_page)
     if not stripe_customers['data']:
         break
 
