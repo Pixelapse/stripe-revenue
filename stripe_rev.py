@@ -1,18 +1,22 @@
+# -*- coding: utf-8 -*-
 # Credit to: https://gist.github.com/philfreo/5543145
 
 from __future__ import division
 
+# Default libs
 import collections
-from texttable import Texttable
+import os
+
+# Installed libs
 import stripe
+from texttable import Texttable
+
 
 by_status = collections.defaultdict(list)
 per_page = 100
 offset = 0
 
-STRIPE_TEST_KEY = ""
-STRIPE_LIVE_KEY = ""
-stripe.api_key = STRIPE_LIVE_KEY
+stripe.api_key = os.environ.get('STRIPE_LIVE_KEY')
 
 while True:
     stripe_customers = stripe.Customer.all(count=per_page, offset=offset)
